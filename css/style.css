@@ -1,0 +1,234 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  background-color: #444;
+  overflow: hidden;
+}
+
+.sky {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  background-color: royalblue;
+  -webkit-animation: sky-change 8s infinite linear;
+          animation: sky-change 8s infinite linear;
+}
+
+.sky .sun {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 5em gold;
+          box-shadow: 0 0 5em gold;
+  -webkit-animation: sunset 8s infinite linear;
+          animation: sunset 8s infinite linear;
+}
+
+.ground {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  bottom: 0;
+  background-color: #654321;
+}
+
+.ground .grass {
+  position: absolute;
+  top: 0;
+  background-color: green;
+  height: 200px;
+  width: 100%;
+}
+
+.ground .road {
+  position: absolute;
+  top: 30px;
+  height: 120px;
+  width: 100%;
+  background-color: #666;
+  top: 30px;
+}
+
+.ground .road .car {
+  position: absolute;
+  top: -15px;
+  left: 150px;
+  height: 75px;
+  width: 150px;
+  border-radius: 15px;
+  background-color: tomato;
+  -webkit-animation: car-drive 4s infinite linear;
+          animation: car-drive 4s infinite linear;
+}
+
+.ground .road .car .wheels {
+  position: absolute;
+  bottom: -15px;
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  border: 2px white dashed;
+  border-radius: 50px;
+  -webkit-animation: wheels-rotation 1s infinite linear;
+          animation: wheels-rotation 1s infinite linear;
+}
+
+.ground .road .car .front-wheel {
+  right: 8px;
+  z-index: 1;
+}
+
+.ground .road .car .rear-wheel {
+  left: 8px;
+  z-index: 1;
+}
+
+.ground .road .car .window {
+  position: absolute;
+  top: 5px;
+  height: 30px;
+  width: 50px;
+  background-color: blue;
+}
+
+.ground .road .car .front-window {
+  right: 0;
+  border-top-right-radius: 10px;
+}
+
+.ground .road .car .rear-window {
+  left: 0;
+  border-top-left-radius: 10px;
+}
+
+.ground .road .car::after,
+.ground .road .car::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  background-color: tomato;
+}
+
+.ground .road .car::before {
+  left: -20px;
+}
+
+.ground .road .car::after {
+  right: -20px;
+  border-top-right-radius: 15px;
+}
+
+@-webkit-keyframes sunset {
+  0% {
+    top: 800px;
+  }
+  40% {
+    top: 50px;
+  }
+  60% {
+    top: 50px;
+  }
+  100% {
+    top: 800px;
+  }
+}
+
+@keyframes sunset {
+  0% {
+    top: 800px;
+  }
+  40% {
+    top: 50px;
+  }
+  60% {
+    top: 50px;
+  }
+  100% {
+    top: 800px;
+  }
+}
+
+@-webkit-keyframes sky-change {
+  0% {
+    background-color: blue;
+  }
+  40% {
+    background-color: royalblue;
+  }
+  60% {
+    background-color: royalblue;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+
+@keyframes sky-change {
+  0% {
+    background-color: blue;
+  }
+  40% {
+    background-color: royalblue;
+  }
+  60% {
+    background-color: royalblue;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+
+@-webkit-keyframes car-drive {
+  from {
+    left: -500px;
+  }
+  to {
+    left: 2000px;
+  }
+}
+
+@keyframes car-drive {
+  from {
+    left: -500px;
+  }
+  to {
+    left: 2000px;
+  }
+}
+
+@-webkit-keyframes wheels-rotation {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes wheels-rotation {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */

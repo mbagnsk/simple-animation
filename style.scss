@@ -1,0 +1,149 @@
+@import 'reset.scss';
+
+$div-size: 300px;
+
+body {
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: #444;
+    overflow: hidden;
+}
+
+.sky {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    background-color: royalblue;
+    animation: sky-change 8s infinite linear;
+
+    .sun{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        border-radius: 50%;
+        box-shadow: 0 0 5em gold;
+        animation: sunset 8s infinite linear;
+    }
+}
+
+.ground {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    bottom: 0;
+    background-color: #654321;
+    
+    .grass {
+        position: absolute;
+        top: 0;
+        background-color: green;
+        height: 200px;
+        width: 100%;
+    }
+
+    .road {
+        position: absolute;
+        top: 30px;
+        height: 120px;
+        width: 100%;
+        background-color: #666;
+        top: 30px;
+
+        .car {
+            position: absolute;
+            top: -15px;
+            left: 150px;
+            height: 75px;
+            width: 150px;
+            border-radius: 15px;
+            background-color: tomato;
+            animation: car-drive 4s infinite linear;
+
+            .wheels {
+                position: absolute;
+                bottom: -15px;
+                width: 35px;
+                height: 35px;
+                background-color: black;
+                border: 2px white dashed;
+                border-radius: 50px;
+                animation: wheels-rotation 1s infinite linear;
+            }
+
+            .front-wheel {
+                right: 8px;
+                z-index: 1;
+            }
+
+            .rear-wheel {
+                left: 8px;
+                z-index: 1;
+            }
+
+            .window {
+                position: absolute;
+                top: 5px;
+                height: 30px;
+                width: 50px;
+                background-color: blue;
+            }
+
+            .front-window {
+                right: 0;
+                border-top-right-radius: 10px;
+            }
+
+            .rear-window {
+                left: 0;
+                border-top-left-radius: 10px;
+            }
+        }
+
+        .car::after, 
+        .car::before {
+            content:  '';
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background-color: tomato;
+        }
+        
+        .car::before {
+            left: -20px;
+        }
+
+        .car::after {
+            right: -20px;
+            border-top-right-radius: 15px;
+        }
+    }
+}
+
+@keyframes sunset {
+    0% { top: 800px;}
+    40% { top: 50px; }
+    60% { top: 50px; }
+    100% { top: 800px; }
+}
+
+@keyframes sky-change {
+    0% { background-color: blue;}
+    40% { background-color: royalblue; }
+    60% { background-color: royalblue; }
+    100% { background-color: blue; }
+}
+
+@keyframes car-drive {
+    from { left: -500px; }
+    to { left: 2000px }
+}
+
+@keyframes wheels-rotation {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
